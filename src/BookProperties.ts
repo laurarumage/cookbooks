@@ -1,18 +1,22 @@
+import youGottaEatCover from "./assets/you-gotta-eat.jpg";
+import popsiclePartyCover from "./assets/popsicle-party.jpg";
+import sportSmoothiesCover from "./assets/sport-smoothies.jpg";
+
 const BOOKS = [
   {
     title: "You Gotta Eat",
     author: "Margaret Eby",
-    imgSrc: "src/assets/you-gotta-eat.jpg",
+    imgSrc: youGottaEatCover,
   },
   {
     title: "Popsicle Party",
     author: "Louise Pickford",
-    imgSrc: "src/assets/popsicle-party.jpg",
+    imgSrc: popsiclePartyCover,
   },
   {
     title: "Sport Smoothies",
     author: "Fern Green",
-    imgSrc: "src/assets/sport-smoothies.jpg",
+    imgSrc: sportSmoothiesCover,
   },
 ];
 
