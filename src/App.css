@@ -79,12 +79,15 @@
   box-shadow: var(--shadow);
 }
 
-.bookshelf-title {
-  font-size: 20px;
-  margin-bottom: 12px;
-}
-
 .book-list {
   display: flex;
   gap: 12px;
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 4px;
+  margin-top: 8px;
 }
