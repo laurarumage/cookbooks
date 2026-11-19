@@ -77,6 +77,31 @@
   margin-bottom: 12px;
   background: rgba(255, 248, 252, 0.88);
   box-shadow: var(--shadow);
+  cursor: pointer;
+  color: #1a0813;
+  font: inherit;
+}
+
+.book:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.book:focus-visible,
+.back-button:focus-visible {
+  outline: 3px solid #1a0813;
+  outline-offset: 4px;
+}
+
+.back-button {
+  border: 2px solid #75113f;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #fff8fc;
+  color: #1a0813;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .book-list {
@@ -90,4 +115,27 @@
   height: auto;
   border-radius: 4px;
   margin-top: 8px;
+}
+
+.selected-book {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  border: 2px solid #75113f;
+  border-radius: 10px;
+  background: rgba(255, 248, 252, 0.92);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.selected-book-cover {
+  width: 140px;
+  max-height: 210px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.selected-book h2 {
+  margin: 0 0 6px;
 }

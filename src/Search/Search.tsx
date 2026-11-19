@@ -77,14 +77,24 @@ function findSmoothieMatches(searchText: string): CookbookMatch[] {
   return findFlatIndexMatches(SportSmoothies, searchText, "Sport Smoothies");
 }
 
-function Search() {
+function Search({ selectedBook }: { selectedBook?: string }) {
   const [searchText, setSearchText] = useState("");
-  const matches = findIngredientMatches(YouGottaEat, searchText);
-  const popsicleMatches = findPopsicleMatches(searchText);
-  const smoothieMatches = findSmoothieMatches(searchText);
+  const matches =
+    !selectedBook || selectedBook === "You Gotta Eat"
+      ? findIngredientMatches(YouGottaEat, searchText)
+      : [];
+  const popsicleMatches =
+    !selectedBook || selectedBook === "Popsicle Party"
+      ? findPopsicleMatches(searchText)
+      : [];
+  const smoothieMatches =
+    !selectedBook || selectedBook === "Sport Smoothies"
+      ? findSmoothieMatches(searchText)
+      : [];
+
   return (
     <section id="search">
-      <h2>Search all</h2>
+      <h2>{selectedBook ? `Search ${selectedBook}` : "Search all"}</h2>
       <input
         type="text"
         placeholder="Enter an ingredient"
@@ -140,8 +150,9 @@ function Search() {
             </>
           ) : (
             <p>
-              No matching ingredients found in You Gotta Eat, Popsicle Party, or
-              Sport Smoothies.
+              {selectedBook
+                ? `No matching ingredients found in ${selectedBook}.`
+                : "No matching ingredients found in You Gotta Eat, Popsicle Party, or Sport Smoothies."}
             </p>
           )}
         </div>

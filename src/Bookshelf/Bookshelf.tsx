@@ -1,22 +1,12 @@
 import { useState } from "react";
-const books = [
-  {
-    title: "You Gotta Eat",
-    author: "Margaret Eby",
-    imgSrc: "src/assets/you-gotta-eat.jpg",
-  },
-  {
-    title: "Popsicle Party",
-    author: "Louise Pickford",
-    imgSrc: "src/assets/popsicle-party.jpg",
-  },
-  {
-    title: "Sport Smoothies",
-    author: "Fern Green",
-    imgSrc: "src/assets/sport-smoothies.jpg",
-  },
-];
-function Bookshelf() {
+
+function Bookshelf({
+  books,
+  onSelectBook,
+}: {
+  books: { title: string; author: string; imgSrc: string }[];
+  onSelectBook: (title: string) => void;
+}) {
   const [bookList, _setBookList] = useState(books);
 
   return (
@@ -24,7 +14,13 @@ function Bookshelf() {
       <h2>Bookshelf</h2>
       <div className="book-list">
         {bookList.map((book) => (
-          <div key={book.title} className="book">
+          <button
+            key={book.title}
+            type="button"
+            className="book"
+            onClick={() => onSelectBook(book.title)}
+            aria-label={`Search within ${book.title}`}
+          >
             <h3 className="book-title">{book.title}</h3>
             <p className="book-author">by {book.author}</p>
             <img
@@ -32,7 +28,7 @@ function Bookshelf() {
               alt={`Cover of ${book.title} by ${book.author}`}
               className="book-cover"
             />
-          </div>
+          </button>
         ))}
       </div>
     </section>
